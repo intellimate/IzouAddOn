@@ -2,6 +2,7 @@ package org.intellimate.izou.exampleaddon;
 
 import org.intellimate.izou.activator.ActivatorModel;
 import org.intellimate.izou.events.EventsControllerModel;
+import org.intellimate.izou.output.OutputControllerModel;
 import org.intellimate.izou.output.OutputExtensionModel;
 import org.intellimate.izou.output.OutputPluginModel;
 import org.intellimate.izou.sdk.addon.AddOn;
@@ -91,5 +92,17 @@ public class ExampleAddOn extends AddOn {
         OutputExtensionModel[] outputExtensions = new OutputExtensionModel[1];
         outputExtensions[0] = new ExampleOutputExtension(getContext());
         return outputExtensions;
+    }
+
+    /**
+     * Use this method to register (if needed) your OutputControllers.
+     *
+     * @return Array containing Instances of OutputControllers
+     */
+    @Override
+    public OutputControllerModel[] registerOutputController() {
+        ExampleOutputController[] outputControllers = new ExampleOutputController[1];
+        outputControllers[0] = new ExampleOutputController(getContext());
+        return outputControllers;
     }
 }
